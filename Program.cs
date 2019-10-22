@@ -9,8 +9,12 @@ namespace NonRepeatingChar
         {
             Console.WriteLine("Enter Input String or Enter 'Exit' to exit");
             string inputString = Console.ReadLine();
+            string lowerVersion = inputString.ToLower();
+            inputString = lowerVersion;
             while (inputString.ToLower() != "exit")
             {
+                lowerVersion = inputString.ToLower();
+                inputString = lowerVersion;
                 int index = -1;
                 char[] repeatingChar = new char[inputString.Length];
                 int repeatCharInex = 0;
@@ -19,6 +23,7 @@ namespace NonRepeatingChar
                     if ( repeatingChar.Contains(inputString.ElementAt(i)) ||inputString.LastIndexOf(inputString.ElementAt(i)) > i)
                     {
                         repeatingChar[repeatCharInex] = inputString.ElementAt(i);
+                        repeatCharInex++;
                         continue;
                     }
                     else
@@ -34,8 +39,7 @@ namespace NonRepeatingChar
                    Console.WriteLine("all repeat");
                 Console.WriteLine("=========================\nEnter Input String or Enter 'Exit' to exit");
                  inputString = Console.ReadLine();
-            }
-            
+            }        
         }
     }
 }
